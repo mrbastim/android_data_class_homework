@@ -27,19 +27,21 @@ fun main() {
         Teacher("Евгений", 2, 1, languageList)
     )
 
-    val experiencedTeacher = getExperiencedTeacher(experience = 5, teacherList = teacherList)
+    val experiencedTeacher = getExperiencedTeacher(experience = 13, teacherList = teacherList)
 
     if (experiencedTeacher.isNotEmpty()) {
-        println(experiencedTeacher)
+        println(experiencedTeacher.toString())
     } else {
         // TODO если список имен пустой, то выведи в терминал "Учитель с таким опытом не найден"
+        println("Учитель с таким опытом не найден")
     }
 }
 
 /**
  * Метод поиска опытного учителя из списка
  */
-private fun getExperiencedTeacher(experience: Int, teacherList: List<Teacher>): List<String> {
+private fun getExperiencedTeacher(experience: Int, teacherList: List<Teacher>): List<Teacher> {
     // TODO сейчас метод возвращает пустой список. Напиши здесь фильтрацию поиска учителя из списка teacherList
-    return emptyList()
+    val filteredList = teacherList.filter { it.progExperience > experience }
+    return filteredList
 }
